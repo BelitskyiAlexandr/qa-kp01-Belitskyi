@@ -5,6 +5,7 @@ class Directory:
     def __init__(self, name = "autodir"):
         self.__name = name
         self.list = list() 
+        self.directory = Directory()
         print("Directory created")
 
     def get_name(self):
@@ -35,27 +36,5 @@ class Directory:
     def __del__(self):
         self.__name = "None"
         self.list = list() 
+        self.__directory.list.remove(self)
         print("Directory was removed")
-
-
-
-
-'''
-binaryFile = BinaryFile()
-
-smt = [2, "Tom", 22.2, binaryFile]
-#for item in smt:
-#   print(item)
-
-dir = Directory("dir")
-dir1 = Directory("dir1")
-
-dir.add_item(dir1)
-dir.print_list()
-
-dir.move_repository(dir1)
-print("~~~~")
-dir.print_list()
-print("~~~~")
-dir1.print_list()
-'''
