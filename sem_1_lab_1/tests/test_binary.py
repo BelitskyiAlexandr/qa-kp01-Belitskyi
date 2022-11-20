@@ -39,3 +39,10 @@ def test_delete():
     bin = BinaryFile(dir)
     bin.delete()
     assert dir.list == []
+
+def test_redelete():
+    dir = Directory()
+    bin = BinaryFile(dir)
+    bin.delete()
+    with pytest.raises(FileExistsError):
+        bin.delete()

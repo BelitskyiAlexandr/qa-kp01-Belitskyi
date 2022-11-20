@@ -22,5 +22,12 @@ def test_good_move():
 
 def test_delete():
     dir = Directory()
+    dir.delete()
     assert dir.list == []
     assert dir.get_name() == "None"
+
+def test_redelete():
+    dir = Directory()
+    dir.delete()
+    with pytest.raises(FileExistsError):
+        dir.delete()

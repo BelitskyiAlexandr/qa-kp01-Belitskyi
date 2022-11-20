@@ -36,7 +36,9 @@ class BinaryFile:
 
     # Destruc
     def delete(self):
+        if(self.__name == "None"):
+            raise FileExistsError("Binary file not exists")
         self.__directory.list.remove(self)
-        self.log.append_context("\n" + self.get_name() + ": was removed")
-
+        self.append_context("\n" + self.get_name() + ": was removed")
+        self.__name = "None"
 

@@ -39,5 +39,9 @@ class LogTextFile:
 
     # Destruc
     def delete(self):
+        if(self.__name == "None"):
+            raise FileExistsError("Logger not exists")
         self.__directory.list.remove(self)
         self.append_context("\n" + self.get_name() + ": was removed")
+        self.__name = "None"
+        

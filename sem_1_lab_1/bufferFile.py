@@ -53,7 +53,9 @@ class BufferFile:
 
     # Destruc
     def delete(self):
+        if(self.__name == "None"):
+            raise FileExistsError("Buffer not exist")
         self.__directory.list.remove(self)
-        self.log.append_context("\n" + self.get_name() + ": was removed")
-
+        self.append_context("\n" + self.get_name() + ": was removed")
+        self.__name = "None"
 

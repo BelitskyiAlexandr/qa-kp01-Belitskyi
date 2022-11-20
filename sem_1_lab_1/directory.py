@@ -2,14 +2,9 @@
 class Directory:
     
     #Constr
-    def __init__(self, name, logg):
-        self.__name = ""
-        if name == "":
-            self.__name = "autodir"
-        else: 
-            self.__name = name
+    def __init__(self, name = "autodir"):
+        self.__name = name
         self.list = list() 
-        self.log = logg
 
     def get_name(self):
         return self.__name
@@ -66,6 +61,8 @@ class Directory:
 
     # Destruc
     def delete(self):
+        if(self.__name == "None"):
+            raise FileExistsError("Dir not exists")
+        print(self.get_name() + " was removed")
         self.__name = "None"
         self.list = list()
-        print(self.get_name() + " was removed")
