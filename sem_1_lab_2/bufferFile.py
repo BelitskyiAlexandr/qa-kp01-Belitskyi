@@ -27,7 +27,7 @@ class BufferFile:
         self.__directory = new_repo
         self.log.append_context("\n" + self.get_name() + ": moved to " + new_repo.get_name())
 
-    # Read       
+    # Read
     def get_context(self):
         return self.list
 
