@@ -7,6 +7,9 @@ class BufferFile:
     def __init__(self, size, directory, log, name):
         if name == "":
             name = "Buffer"
+        for item in directory.list:
+            if item.get_name() == name + ".buf":
+                name += "*"
         self.__name = name + ".buf"
         self.__size = size
         self.list = list()

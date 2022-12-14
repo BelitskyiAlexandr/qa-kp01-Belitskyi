@@ -64,5 +64,10 @@ class Directory:
         self.__name = "None"
         self.list = list()
 
+    def delete_directory(self, dir):
+        if dir in self.list:
+            self.list.remove(dir)
+
+
 
 dir = Directory()

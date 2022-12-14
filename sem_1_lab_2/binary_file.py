@@ -7,6 +7,9 @@ class BinaryFile:
     def __init__(self, directory, logg, name):
         if name == "":
             name = "BinaryFile"
+        for item in directory.list:
+            if item.get_name() == name + ".bin":
+                name += "*"
         self.__name = name + ".bin"
         self.context = "Something is here"
         self.__directory = directory
@@ -42,5 +45,3 @@ class BinaryFile:
         self.__directory.list.remove(self)
         self.log.append_context("\n" + self.get_name() + ": was removed")
         self.__name = "None"
-
-
