@@ -4,8 +4,10 @@ from logtextfile import LogTextFile
 
 class BinaryFile:
     # Constr
-    def __init__(self, directory, logg):
-        self.__name = "BinaryFile.bin"
+    def __init__(self, directory, logg, name):
+        if name == "":
+            name = "BinaryFile"
+        self.__name = name + ".bin"
         self.context = "Something is here"
         self.__directory = directory
         directory.list.append(self)
@@ -40,4 +42,5 @@ class BinaryFile:
         self.__directory.list.remove(self)
         self.log.append_context("\n" + self.get_name() + ": was removed")
         self.__name = "None"
+
 

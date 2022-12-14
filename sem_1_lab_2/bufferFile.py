@@ -4,8 +4,10 @@ from logtextfile import LogTextFile
 
 class BufferFile:
     # Constr
-    def __init__(self, size, directory, log):
-        self.__name = "Buffer.buf"
+    def __init__(self, size, directory, log, name):
+        if name == "":
+            name = "Buffer"
+        self.__name = name + ".buf"
         self.__size = size
         self.list = list()
         self.__directory = directory

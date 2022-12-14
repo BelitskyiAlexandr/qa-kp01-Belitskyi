@@ -38,6 +38,7 @@ class Directory:
             if item.get_name().endswith(".lg"):
                 new_dir_list.append(item)
         self.list = new_dir_list
+        return new_dir_list
 
     def print_list(self):
         # self.sort_list()
