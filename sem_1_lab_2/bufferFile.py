@@ -29,6 +29,11 @@ class BufferFile:
     def move(self, new_repo):
         new_repo.list.append(self)
         self.__directory.list.remove(self)
+        for item in new_repo.list:
+            if item.get_name() == self.__name:
+                name = self.__name[0: self.__name.find('.')] + "`" + ".buf"
+                self.__name = name
+                break
         self.__directory = new_repo
         self.log.append_context("\n" + self.get_name() + ": moved to " + new_repo.get_name())
 

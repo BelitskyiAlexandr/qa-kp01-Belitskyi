@@ -13,6 +13,11 @@ class Directory:
 
     # Move
     def move_repository(self, new_repo):
+        for item in new_repo.list:
+            if item.get_name() == self.__name:
+                name = self.__name + "`"
+                self.__name = name
+                break
         if new_repo in self.list:
             self.list.remove(new_repo)
             new_repo.list.append(self)

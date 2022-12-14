@@ -17,6 +17,15 @@ def test_good_move():
     assert dir1 in dir2.list
 
 
+def test_name_after_move():
+    dir1 = Directory("dir1")
+    dir2 = Directory("dir1")
+    dir3 = Directory("dir1")
+    dir1.move_repository(dir3)
+    dir2.move_repository(dir3)
+    assert dir2.get_name() == "dir1`"
+
+
 def test_delete():
     dir = Directory()
     dir.delete()
