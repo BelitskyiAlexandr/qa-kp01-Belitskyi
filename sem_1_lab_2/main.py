@@ -11,6 +11,9 @@ log.move(home)
 binary = BinaryFile(home, log, "Binn")
 binaryf = BinaryFile(home, log, "Bins")
 bufferfile = BufferFile(5, home, log, "")
+nested_dir = Directory("nested_dir")
+nested_dir.move_repository(home)
+
 
 @app.route('/')
 def main_page():
@@ -142,7 +145,7 @@ def bufferfile_pop(name_buf):
         return redirect('/bufferfile')
 
     if request.method == 'POST':
-        bufferfile.first_out()
+        bufF.first_out()
         return redirect('/bufferfile_read/<string:name>')
     else:
         return render_template('bufferfile_pop.html')
