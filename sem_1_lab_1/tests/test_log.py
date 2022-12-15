@@ -42,4 +42,8 @@ def test_delete():
     log.delete()
     assert dir.list == []
 
-test_delete()
+def test_redelete():
+    log = LogTextFile()
+    log.delete()
+    with pytest.raises(FileExistsError):
+        log.delete()

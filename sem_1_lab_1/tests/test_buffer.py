@@ -53,3 +53,9 @@ def test_pop():
     assert buf.first_out() == "ss"
     assert buf.list == []
 
+def test_redelete():
+    dir = Directory()
+    buf = BufferFile(3, dir)
+    buf.delete()
+    with pytest.raises(FileExistsError):
+        buf.delete()
