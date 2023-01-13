@@ -196,7 +196,7 @@ def test_buffer_pop():
     print(data)
 
 def test_bufferfile_delete():
-    name = "Buffer"
+    name = "Buff"
     ENDPOINT = f"http://127.0.0.1:5000/bufferfile_del/{name}"
     response = requests.post(ENDPOINT)
 

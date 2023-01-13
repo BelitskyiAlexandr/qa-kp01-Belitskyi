@@ -16,6 +16,11 @@ def test_good_move():
     dir1.move_repository(dir2)
     assert dir1 in dir2.list
 
+def test_bad_move():
+    dir1 = Directory("dir1")
+    with pytest.raises(NameError):
+        dir1.move_repository(dir2)
+
 
 def test_name_after_move():
     dir1 = Directory("dir1")

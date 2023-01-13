@@ -26,6 +26,13 @@ def test_good_move():
     buf.move(dir2)
     assert buf.get_direcrory_name() == "dir2"
 
+def test_bad_move():
+    dir1 = Directory("dir1")
+    log = LogTextFile()
+    buf = BufferFile(5, dir1, log, "")
+    with pytest.raises(NameError):
+        buf.move(dir2)
+
 def test_name_after_move():
     dir1 = Directory("dir1")
     dir2 = Directory("dir2")
